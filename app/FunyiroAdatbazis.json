@@ -1,0 +1,12 @@
+[{
+  "nev": "alko",
+  "tipus": "benzines",
+  "image": {
+    "src": "Images/alko.jpg"
+  }
+
+}, {
+  "nev": "Stihl",
+  "tipus": "benzines"
+}
+]

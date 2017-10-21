@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fűnyíró áruház</title>
+    <link rel="stylesheet" href="fooldalStyle.css">
+</head>
+<body>
+<div id="header">
+    <div id="header_container">
+        <img id="header_icon" src="Images/Header_icon.png">
+        <h1>
+            Fűnyíró áruház
+        </h1>
+    </div>
+    </div>
+<div id="rendezes_talalatszam">
+    <div id="rendezes">
+        <form name="rendezesi_szempont" method="post" action="">
+            Rendezés szempontja:
+            <select name="rendezesi_szempontok">
+                <option>Név</option>
+                <option>Hengerűrtartalom</option>
+                <option>Teljesítmény</option>
+                <option> Tömeg</option>
+            </select>
+        </form>
+    </div>
+    <div id="talalatszam">
+        <form name="talalatszam" method="post" action="">
+            Találatok száma oldalanként:
+            <select name="talalatszamok">
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
+            </select>
+        </form>
+    </div>
+</div>
+<div id="szurocontainer">
+    <div id="szuroCim">
+        <h2>
+            Részletes keresés
+        </h2>
+    </div>
+    <div id="szurok">
+    <form name="szuro" method="post" action="">
+        <p>
+            Név: <input type="text" name="nev" size="25" maxlength="25">
+        </p>
+        <p>
+            Típus:
+            <select name="tipus">
+                <option onclick="disableHajtasValaszto()">Kézi</option>
+                <option onclick="enableHajtasValaszto()">Fűkasza</option>
+                <option onclick="enableHajtasValaszto()">Fűnyíró traktor</option>
+                <option onclick="enableHajtasValaszto()">Fűnyíró robot</option>
+            </select>
+        </p>
+            <p> Hajtás: </p>
+            <p class="hajtas"><input id="benzinHajtas" type="radio" name="hajtas" value="benzines"> Benzines </p>
+            <p class="hajtas"><input id="elektromosHajtas" type="radio" name="hajtas" value="elektromos"> Elektromos </p>
+        <p>
+            Márka:
+            <select name="marka">
+                <option>Mindegy</option>
+                <option>Márka 1</option>
+                <option>Márka 2</option>
+                <option>Márka 3</option>
+            </select>
+        </p>
+        <p>Vágószélesség:</p>
+        <div class="slider">
+            <input onclick="refreshSliderCurrentValue()" type="range" class="vagoszelesseg_range" value="100"><br>
+        </div>
+        <p class="minmax">
+            <span class="minErtek">0cm</span><span class="sliderCurrentValue"></span><span class="maxErtek">120cm</span>
+        </p>
+        <p>Hengerűrtartalom:</p>
+        <div class="slider">
+            <input onclick="refreshSliderCurrentValue()" type="range" class="vagoszelesseg_range" value="100"><br>
+        </div>
+        <p class="minmax">
+            <span class="minErtek">0cm</span><span class="maxErtek">120cm</span>
+        </p>
+        <p>Tömeg:</p>
+        <div class="slider">
+            <input onclick="refreshSliderCurrentValue()" type="range" class="vagoszelesseg_range" value="100"><br>
+        </div>
+        <p class="minmax">
+            <span class="minErtek">0cm</span><span class="maxErtek">120cm</span>
+        </p>
+    </form>
+    </div>
+    <script>
+        function refreshSliderCurrentValue() {
+            var x = document.getElementById("vagoszelesseg_range").value;
+            document.getElementById("sliderCurrentValue").innerHTML = (x * 6/5).toString();
+        }
+        function disableHajtasValaszto() {
+            document.getElementById("benzinHajtas").disabled = true;
+            document.getElementById("elektromosHajtas").disabled = true;
+        }
+        function enableHajtasValaszto() {
+            document.getElementById("benzinHajtas").disabled = false;
+            document.getElementById("elektromosHajtas").disabled = false;
+        }
+    </script>
+</div>
+</body>
+</html>
