@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Fűnyíró áruház</title>
     <link rel="stylesheet" href="fooldalStyle.css">
+    <script src="app.js"></script>
 </head>
 <body>
 <div id="header">
@@ -18,22 +19,26 @@
     <div id="rendezes">
         <form name="rendezesi_szempont" method="post" action="">
             Rendezés szempontja:
-            <select name="rendezesi_szempontok">
-                <option>Név</option>
-                <option>Hengerűrtartalom</option>
-                <option>Teljesítmény</option>
-                <option> Tömeg</option>
-            </select>
+            <label>
+                <select name="rendezesi_szempontok">
+                    <option>Név</option>
+                    <option>Hengerűrtartalom</option>
+                    <option>Teljesítmény</option>
+                    <option> Tömeg</option>
+                </select>
+            </label>
         </form>
     </div>
     <div id="talalatszam">
         <form name="talalatszam" method="post" action="">
             Találatok száma oldalanként:
-            <select name="talalatszamok">
-                <option>10</option>
-                <option>20</option>
-                <option>30</option>
-            </select>
+            <label>
+                <select name="talalatszamok">
+                    <option>10</option>
+                    <option>20</option>
+                    <option>30</option>
+                </select>
+            </label>
         </form>
     </div>
 </div>
@@ -46,66 +51,58 @@
     <div id="szurok">
     <form name="szuro" method="post" action="">
         <p>
-            Név: <input type="text" name="nev" size="25" maxlength="25">
+            Név: <label>
+            <input type="text" name="nev" size="25" maxlength="25">
+        </label>
         </p>
         <p>
             Típus:
-            <select name="tipus">
-                <option onclick="disableHajtasValaszto()">Kézi</option>
-                <option onclick="enableHajtasValaszto()">Fűkasza</option>
-                <option onclick="enableHajtasValaszto()">Fűnyíró traktor</option>
-                <option onclick="enableHajtasValaszto()">Fűnyíró robot</option>
-            </select>
+            <label>
+                <select name="tipus">
+                    <option onclick="enableHajtasValaszto()">Kézi</option>
+                    <option onclick="disableHajtasValaszto()">Fűkasza</option>
+                    <option onclick="disableHajtasValaszto()">Fűnyíró traktor</option>
+                    <option onclick="disableHajtasValaszto()">Fűnyíró robot</option>
+                </select>
+            </label>
         </p>
             <p> Hajtás: </p>
-            <p class="hajtas"><input id="benzinHajtas" type="radio" name="hajtas" value="benzines"> Benzines </p>
-            <p class="hajtas"><input id="elektromosHajtas" type="radio" name="hajtas" value="elektromos"> Elektromos </p>
+            <p class="hajtas"><label for="benzinHajtas"></label><input id="benzinHajtas" type="radio" name="hajtas" value="benzines"> Benzines </p>
+            <p class="hajtas"><label for="elektromosHajtas"></label><input id="elektromosHajtas" type="radio" name="hajtas" value="elektromos"> Elektromos </p>
         <p>
             Márka:
-            <select name="marka">
-                <option>Mindegy</option>
-                <option>Márka 1</option>
-                <option>Márka 2</option>
-                <option>Márka 3</option>
-            </select>
+            <label>
+                <select name="marka">
+                    <option>Mindegy</option>
+                    <option>Márka 1</option>
+                    <option>Márka 2</option>
+                    <option>Márka 3</option>
+                </select>
+            </label>
         </p>
         <p>Vágószélesség:</p>
         <div class="slider">
-            <input onclick="refreshSliderCurrentValue()" type="range" class="vagoszelesseg_range" value="100"><br>
+            <label for="vagoszelesseg_range"></label><input onchange="refreshVagoszelesseg()" type="range" id="vagoszelesseg_range" class="range" value="100"><br>
         </div>
         <p class="minmax">
-            <span class="minErtek">0cm</span><span class="sliderCurrentValue"></span><span class="maxErtek">120cm</span>
+            <span class="minErtek">0cm</span><span id="vagoszelessegCurrentValue"></span><span class="maxErtek">120cm</span>
         </p>
         <p>Hengerűrtartalom:</p>
         <div class="slider">
-            <input onclick="refreshSliderCurrentValue()" type="range" class="vagoszelesseg_range" value="100"><br>
+            <label for="hengerurtartalom_range"></label><input onchange="refreshHengerurtartalom()" type="range" id="hengerurtartalom_range" class="range" value="100"><br>
         </div>
         <p class="minmax">
-            <span class="minErtek">0cm</span><span class="maxErtek">120cm</span>
+            <span class="minErtek">0cm</span><span id="hengerurtartalomCurrentValue"></span><span class="maxErtek">120cm</span>
         </p>
         <p>Tömeg:</p>
         <div class="slider">
-            <input onclick="refreshSliderCurrentValue()" type="range" class="vagoszelesseg_range" value="100"><br>
+            <label for="tomeg_range"></label><input onchange="refreshTomeg()" type="range" id="tomeg_range" class="range" value="100"><br>
         </div>
         <p class="minmax">
-            <span class="minErtek">0cm</span><span class="maxErtek">120cm</span>
+            <span class="minErtek">0cm</span><span id="tomegCurrentValue"></span><span class="maxErtek">120cm</span>
         </p>
     </form>
     </div>
-    <script>
-        function refreshSliderCurrentValue() {
-            var x = document.getElementById("vagoszelesseg_range").value;
-            document.getElementById("sliderCurrentValue").innerHTML = (x * 6/5).toString();
-        }
-        function disableHajtasValaszto() {
-            document.getElementById("benzinHajtas").disabled = true;
-            document.getElementById("elektromosHajtas").disabled = true;
-        }
-        function enableHajtasValaszto() {
-            document.getElementById("benzinHajtas").disabled = false;
-            document.getElementById("elektromosHajtas").disabled = false;
-        }
-    </script>
 </div>
 </body>
 </html>
