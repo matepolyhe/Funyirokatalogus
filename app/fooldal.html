@@ -33,7 +33,7 @@
         <form name="talalatszam" method="post" action="">
             Találatok száma oldalanként:
             <label>
-                <select name="talalatszamok">
+                <select onchange="createList()" id="talalatszamok" name="talalatszamok">
                     <option>10</option>
                     <option>20</option>
                     <option>30</option>
@@ -49,10 +49,9 @@
         </h2>
     </div>
     <div id="szurok">
-    <form name="szuro" method="post" action="">
         <p>
             Név: <label>
-            <input type="text" name="nev" size="25" maxlength="25">
+            <input id="nevMezo" type="text" name="nev" size="25" maxlength="25">
         </label>
         </p>
         <p>
@@ -101,8 +100,27 @@
         <p class="minmax">
             <span class="minErtek">0cm</span><span id="tomegCurrentValue"></span><span class="maxErtek">120cm</span>
         </p>
-    </form>
+    </div>
+    <div id="keresesButtonContainer">
+        <button id="keresesButton" onclick="">
+            Keresés
+        </button>
     </div>
 </div>
+<div id="listaContainer">
+    <script>
+        createList();
+    </script>
+</div>
+<script>
+    var x = document.getElementById("vagoszelesseg_range").value;
+    document.getElementById("vagoszelessegCurrentValue").innerHTML = (x * 6/5).toString();
+
+    var y = document.getElementById("hengerurtartalom_range").value;
+    document.getElementById("hengerurtartalomCurrentValue").innerHTML = (y * 6/5).toString();
+
+    var z = document.getElementById("tomeg_range").value;
+    document.getElementById("tomegCurrentValue").innerHTML = (z * 6/5).toString();
+</script>
 </body>
 </html>

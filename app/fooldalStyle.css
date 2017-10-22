@@ -62,8 +62,34 @@ div#szuroCim{
 div#szurocontainer#szurok{
     position: relative;
 }
+input#nevMezo{
+    width: 200px;
+    margin-left: 20px;
+    border-radius: 5px;
+    border-style: solid;
+    height: 20px;
+}
+
+select{
+    width: 200px;
+    margin-left: 9px;
+    border-radius: 5px;
+    height: 30px;
+    border-style: solid;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("Images/arrow_down.png"); /* add custom arrow */
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: 30px 22px;
+}
+select:hover{
+    background-size: 32px 25px;
+}
 div#szurocontainer p{
     margin-left: 10px;
+    font-size: 16px;
+    font-weight: 500;
 }
 div#szurocontainer div{
     margin-left: 10px;
@@ -120,4 +146,41 @@ span#tomegCurrentValue{
     width: 80%;
     text-align: center;
     display: inline-block;
+}
+div#keresesButtonContainer{
+    width: 100%;
+    text-align: center;
+    margin: 15px 0;
+}
+button#keresesButton{
+    margin: 0 auto;
+    width: 80%;
+    height: 99%;
+    padding: 5px 0;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: #a41f29;
+    background-color: #a41f29;
+    color: darkgray;
+    font-size: 18px;
+    font-weight: 800;
+}
+button#keresesButton:hover{
+    color: #bdbdbd;
+    width: 81%;
+    height: 100%;
+}
+div#listaContainer{
+    float: right;
+    height: 50px;
+    width: calc(100% - 325px);
+    margin: 0 5px 10px 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: #ebe7ae;
+    background-color: #ebe7ae;
+    display: flex;
+    align-items: center;
 }
