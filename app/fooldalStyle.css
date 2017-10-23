@@ -7,6 +7,7 @@ div#header{
     width: 100%;
     background-color: wheat;
     position: fixed;
+    z-index: 2;
 }
 div#header_container{
     width: 40%;
@@ -24,6 +25,16 @@ h1{
     text-align: center;
     display: inline-block;
     margin: 0 auto;
+}
+button#homeScreenButton{
+    z-index: 2;
+    width: 40%;
+    height: 100%;
+    display: inherit;
+    background-color: #a41f29;
+    position: absolute;
+    top: 0;
+    opacity: 0;
 }
 div#rendezes_talalatszam{
     float: right;
@@ -45,6 +56,7 @@ div#talalatszam{
     margin-left: 30px;
 }
 div#szurocontainer{
+    z-index: -1;
     float: left;
     width: 300px;
     margin: 50px auto 10px 5px;
@@ -183,4 +195,15 @@ div#listaContainer{
     background-color: #ebe7ae;
     display: flex;
     align-items: center;
+    transition: all linear 0.3s;
+}
+.ng-hide {
+    height: 0;
+    width: 0;
+    background-color: transparent;
+    top:-200px;
+    left: 200px;
+}
+@media screen and (max-width: 699px) and (min-width: 520px) {
+
 }

@@ -27,7 +27,23 @@ function createList() {
     var listazandoElemszam = parseInt(e.options[e.selectedIndex].value);
     var listaContainerHeight = listazandoElemszam * 20;
     document.getElementById('listaContainer').style.height = listaContainerHeight + 'px';
+    document.getElementById('listaContainer').innerHTML += '<ol id="lista"></ol>';
+    listaFeltoltes();
+}
+function listaFeltoltes() {
+    var e = document.getElementById("talalatszamok");
+    var listazandoElemszam = parseInt(e.options[e.selectedIndex].value);
     for(var i = 0; i<listazandoElemszam; i++){
-        document.getElementById('listaContainer').innerHTML += '<br>Some new content!';
+        document.getElementById('lista').innerHTML += '<li>i</li>';
+    }
+}
+function homeScreen() {
+    window.location.replace('fooldal.html');
+}
+function wait(ms){
+    var start = new Date().getTime();
+    var end = start;
+    while(end < start + ms) {
+        end = new Date().getTime();
     }
 }
