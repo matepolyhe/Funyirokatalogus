@@ -1,3 +1,12 @@
+var App = angular.module('App', []);
+
+App.controller('FunyiroAdatbazisCtrl', function($scope, $http) {
+    $http.get('FunyiroAdatbazis.json')
+        .then(function(res){
+            $scope.funyirok = res.data;
+        });
+});
+
 function refreshVagoszelesseg() {
     var x = document.getElementById("vagoszelesseg_range").value;
     document.getElementById("vagoszelessegCurrentValue").innerHTML = (x * 6/5).toString();
@@ -33,9 +42,8 @@ function createList() {
 function listaFeltoltes() {
     var e = document.getElementById("talalatszamok");
     var listazandoElemszam = parseInt(e.options[e.selectedIndex].value);
-    for(var i = 0; i<listazandoElemszam; i++){
-        document.getElementById('lista').innerHTML += '<li>i</li>';
-    }
+    document.getElementById('lista').innerHTML += '<li ng-repeat="funyiro in funyirok">  {{funyiro.megnevezes}} - <div><img ng-src="{{funyiro.image.src}}" alt="{{funyiro.image.name}}" width="{{funyiro.image.hOffset}}" height="{{funyiro.image.vOffset}}" align="{{funyiro.image.align}}" /></div>\n</li>';
+
 }
 function homeScreen() {
     window.location.replace('fooldal.html');

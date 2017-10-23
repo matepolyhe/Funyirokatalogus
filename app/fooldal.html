@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html ng-app="App">
 <head>
     <meta charset="UTF-8">
     <title>Fűnyíró áruház</title>
     <link rel="stylesheet" href="fooldalStyle.css">
-    <script src="app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="app.js"></script>
 </head>
-<body>
+<body ng-controller="FunyiroAdatbazisCtrl">
 <div id="header">
     <div id="header_container">
         <img id="header_icon" src="Images/Header_icon.png">
@@ -16,7 +16,7 @@
         </h1>
         <button id="homeScreenButton" onclick="homeScreen()">Homescreen</button>
     </div>
-    </div>
+</div>
 <div id="rendezes_talalatszam">
     <div id="rendezes">
         <form name="rendezesi_szempont" method="post" action="">
@@ -67,9 +67,9 @@
                 </select>
             </label>
         </p>
-            <p> Hajtás: </p>
-            <p class="hajtas"><label for="benzinHajtas"></label><input id="benzinHajtas" type="radio" name="hajtas" value="benzines"> Benzines </p>
-            <p class="hajtas"><label for="elektromosHajtas"></label><input id="elektromosHajtas" type="radio" name="hajtas" value="elektromos"> Elektromos </p>
+        <p> Hajtás: </p>
+        <p class="hajtas"><label for="benzinHajtas"></label><input id="benzinHajtas" type="radio" name="hajtas" value="benzines"> Benzines </p>
+        <p class="hajtas"><label for="elektromosHajtas"></label><input id="elektromosHajtas" type="radio" name="hajtas" value="elektromos"> Elektromos </p>
         <p>
             Márka:
             <label>
